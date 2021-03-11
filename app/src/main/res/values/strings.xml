@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">OpenWheatherDemo</string>
+    <string name="city_name">City Name</string>
+    <string name="lookup">Lookup</string>
+    <string name="feels_like">Feels Like: </string>
+    <string name="please_wait">Please Wait: </string>
+
+
+</resources>
