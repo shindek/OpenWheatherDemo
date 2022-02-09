@@ -13,7 +13,9 @@ import com.kishor.openwheatherdemo.R
 import com.kishor.openwheatherdemo.model.WeatherData
 import com.kishor.openwheatherdemo.viewmodel.AppCache
 import com.kishor.openwheatherdemo.viewmodel.WeatherUtils
+import io.reactivex.Scheduler
 import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Response
 
 class MainActivity : BaseActivity() {
@@ -43,8 +45,9 @@ class MainActivity : BaseActivity() {
      */
     fun getAllMembersListAPILiveData(cityName: String){
         showLoader()
-        WeatherUtils(BuildConfig.API_URL,90000).getWeahterData(cityName,BuildConfig.API_KEY).
-        subscribeWith(object : Observer<Response<WeatherData>>,
+        WeatherUtils(BuildConfig.API_URL,90000).getWeahterData(cityName,BuildConfig.API_KEY)
+            .subscribeOn(Schedulers.io())
+            .subscribeWith(object : Observer<Response<WeatherData>>,
             io.reactivex.Observer<Response<WeatherData>> {
             override fun onSubscribe(d: Disposable?) {
 

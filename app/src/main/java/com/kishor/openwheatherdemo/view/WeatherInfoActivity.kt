@@ -18,10 +18,10 @@ class WeatherInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather_info)
         // uncomment this, in case we want to display cityname on header.
-        /*val cityName = intent.getStringExtra("CITY")
+        val cityName = intent.getStringExtra("CITY")
         if(cityName !=null) {
             findViewById<TextView>(R.id.tv_header).setText(cityName)
-        }*/
+        }
         initRecycleView()
         findViewById<ImageView>(R.id.btn_back).setOnClickListener {
             finish()
